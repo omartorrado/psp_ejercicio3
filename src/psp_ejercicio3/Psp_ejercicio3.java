@@ -5,6 +5,9 @@
  */
 package psp_ejercicio3;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author otorradomiguez
@@ -16,7 +19,7 @@ public class Psp_ejercicio3 {
      */
     public static void main(String[] args) {
         Hilo t=new Hilo("Paco");
-        t.start();
+        t.start();        
     }
     
 }

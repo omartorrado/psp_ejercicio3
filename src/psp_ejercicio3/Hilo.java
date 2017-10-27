@@ -32,14 +32,6 @@ public class Hilo extends Thread{
         }
         numHilos++;
         
-        for(int i=1;i<11;i++){
-            try {
-                sleep((rd.nextInt(6)+1)*100);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Hilo.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            System.out.println("El "+this.getName()+" se está procesando(vuelta "+i+")");
-        }
         try {
             t.join();
         } catch (InterruptedException ex) {
@@ -49,6 +41,16 @@ public class Hilo extends Thread{
             nuevo hilo t, por lo que salta null, pero como no tiene que esperar por
             nadie, continua la ejecucion sin problemas*/
         }
+        
+        for(int i=1;i<11;i++){
+            try {
+                sleep((rd.nextInt(6)+1)*100);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Hilo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            System.out.println("El "+this.getName()+" se está procesando(vuelta "+i+")");
+        }
+        
         System.out.println("El "+this.getName()+" ha terminado");
     }
     

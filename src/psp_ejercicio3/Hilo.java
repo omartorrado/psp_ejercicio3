@@ -16,25 +16,19 @@ import java.util.logging.Logger;
 public class Hilo extends Thread{
     Hilo t;
     static int numHilos=0;
-    boolean ultimo=false;
     Random rd=new Random();
     public Hilo(String name) {
         super(name);
-    } 
-
+    }
 
     @Override
     public void run() {
-        System.out.println("El hilo "+this.getName()+" acaba de comenzar");
-        if(numHilos==0){
-            t=new Hilo("Hijo de "+this.getName());
-            t.start();            
-        }
-        if(numHilos>0&&numHilos<4){
+        System.out.println("El "+this.getName()+" acaba de comenzar");
+        /*Si el numero de hilos es menos a los que queremos crear, crea un nuevo
+        hilo y lo inicia,tras lo cual aumentamos el contador de hilos*/
+        if(numHilos>=0&&numHilos<4){
             t=new Hilo("Hijo del "+this.getName());
             t.start();            
-        }else{
-            ultimo=true;
         }
         numHilos++;
         
@@ -44,7 +38,7 @@ public class Hilo extends Thread{
             } catch (InterruptedException ex) {
                 Logger.getLogger(Hilo.class.getName()).log(Level.SEVERE, null, ex);
             }
-            System.out.println("El hilo "+this.getName()+" se está procesando");
+            System.out.println("El "+this.getName()+" se está procesando(vuelta "+i+")");
         }
         try {
             t.join();
@@ -55,7 +49,7 @@ public class Hilo extends Thread{
             nuevo hilo t, por lo que salta null, pero como no tiene que esperar por
             nadie, continua la ejecucion sin problemas*/
         }
-        System.out.println("El hilo "+this.getName()+" ha terminado");
+        System.out.println("El "+this.getName()+" ha terminado");
     }
     
 }

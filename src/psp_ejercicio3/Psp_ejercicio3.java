@@ -5,9 +5,6 @@
  */
 package psp_ejercicio3;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author otorradomiguez
@@ -18,7 +15,7 @@ public class Psp_ejercicio3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Hilo t=new Hilo("Paco");
+        Hilo t=new Hilo("Hilo Principal");
         t.start();        
     }
     
